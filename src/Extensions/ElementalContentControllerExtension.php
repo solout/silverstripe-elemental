@@ -2,6 +2,7 @@
 
 namespace DNADesign\Elemental\Extensions;
 
+use DNADesign\Elemental\Models\BaseElement;
 use DNADesign\Elemental\Models\ElementalArea;
 use DNADesign\Elemental\Extensions\ElementalAreasExtension;
 use SilverStripe\Core\Extension;
@@ -35,7 +36,7 @@ class ElementalContentControllerExtension extends Extension
         }
 
         foreach ($elementalAreaRelations as $elementalAreaRelation) {
-            $element = $elementOwner->$elementalAreaRelation()->Elements()
+            $element = BaseElement::get()
                 ->filter('ID', $id)
                 ->First();
 
